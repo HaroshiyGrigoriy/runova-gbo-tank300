@@ -1,31 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from './Modal';
+import '../index.css';
 
-export default function HeroSection() {
+const Hero = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleOpen = () => setModalOpen(true);
+  const handleClose = () => setModalOpen(false);
+
   return (
-    <section
-      className="relative w-full h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/hero.jpg')" }}
-    >
-      {/* Прозрачный текстовый блок слева */}
-      <div className="absolute top-[25%] left-[20%] bg-black/0 p-6 rounded-xl max-w-xl  text-white">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-          Высококачественные <br />
-          альтернативные <br />
-          топливные системы <br />
-          и компоненты для<br />
-          <span className="text-5xl text-yellow-400">ТВОЕГО TANK 300</span>
-        </h1>
+    <section className="hero-section">
+      <div className="hero-container">
+        <div className="hero-content">
+          <h1 className="hero-text">
+            Высококачественные альтернативные топливные системы и компоненты для
+            <br />
+            <span className="highlight">ТВОЕГО</span>
+          </h1>
+          <h2 className="hero-title">TANK 300</h2>
+          <button className="btn-request" onClick={handleOpen}>
+            Оставить заявку
+          </button>
+        </div>
       </div>
 
-      {/* Кнопка под текстом */}
-      <div className="absolute top-[70%] left-[5%]">
-        <a
-          href="#apply"
-          className="bg-gradient-to-r from-yellow-200 to-teal-200 text-black font-bold py-3 px-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
-        >
-          Оставить заявку
-        </a>
-      </div>
+      {isModalOpen && <Modal onClose={handleClose} />}
     </section>
   );
-}
+};
+
+export default Hero;

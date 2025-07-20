@@ -1,13 +1,21 @@
 import './index.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import About from './components/about';
+import Tech from './components/Tech';
+import Compatibility from './components/Compatibility';
+import Components from './components/ComponentsGbo';
+
 
 export default function App() {
   return (
     <div >
       <Header />
       <Hero />
-      <div className="!bg-red-500 !text-white p-4 text-xl">Проверка Tailwind</div>
-    </div>
+      <About />
+      <Tech/>
+      <Compatibility/>
+      <Components/>
+     </div>
   );
 }
