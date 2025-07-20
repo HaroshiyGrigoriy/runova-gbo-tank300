@@ -1,0 +1,94 @@
+:root {
+  --accent: #ff7a20;
+  --bg-text: rgba(15,23,42,0.75);
+  --text: #f9fafb;
+  --text-light: #ffffff;
+  --gap: 1.5rem;
+  --radius: 0.5rem;
+}
+
+/* контейнер 1240px по центру */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.components-section {
+  background: #0f172a;
+  color: var(--text);
+  padding: 4rem 0;
+}
+
+.components__heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.components__lead {
+  text-align: center;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+/* 2×2 сетка */
+.components__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .components__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* карточка */
+.components__card {
+  position: relative;
+  aspect-ratio: 4 / 3;              /* фиксированное соотношение сторон */
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: default;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.components__card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.5);
+}
+
+/* полупрозрачный фон под текст */
+.components__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--bg-text), transparent 60%);
+}
+
+/* контент */
+.components__body {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  color: var(--text);
+}
+
+.components__title {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--accent);
+}
+
+.components__desc {
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0;
+  color: var(--text-light);
+}

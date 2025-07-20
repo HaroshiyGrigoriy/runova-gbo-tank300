@@ -1,0 +1,163 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  background-image: url("/src/assets/tank.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  min-height: 400px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 350px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-wrapper h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-request {
+  padding: 10px 20px;
+  background-color: #ff9549;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Световой эффект */
+.btn-request::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+
+/* Hover: увеличиваем и светим */
+.btn-request:hover {
+  background-color: #ff7a20;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Двигаем свет */
+.btn-request:hover::before {
+  left: 150%;
+}
+
+.success-message {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #00ff88;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  text-align: center;
+  padding: 30px;
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+}
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .modal-image {
+    display: none; /* убираем картинку */
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* прозрачная, но читаемая */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+
+  form input {
+    font-size: 16px;
+  }
+
+  form button {
+    font-size: 18px;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    color: #000;
+    background: none;
+  }
+
+  .success-message {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+  }
+}

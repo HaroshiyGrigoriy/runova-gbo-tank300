@@ -1,0 +1,95 @@
+:root {
+  --cc-bg: #0f172a;
+  --cc-card-bg: #1e273f;
+  --cc-accent: #ff7a20;
+  --cc-text: #ffffff;
+  --cc-text-light: #ffffff;
+  --cc-radius: 1rem;
+}
+
+.compat-coverflow {
+  background: var(--cc-bg);
+  color: var(--cc-text);
+  padding: 6rem 0 4rem;
+}
+
+.compat-coverflow__title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.compat-coverflow__swiper {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.compat-coverflow__slide {
+  width: 80%;
+  max-width: 500px;
+}
+
+.compat-coverflow__card {
+  background: var(--cc-card-bg);
+  border-radius: var(--cc-radius);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.compat-coverflow__icon-box {
+  background: rgba(255, 149, 73, 0.1);
+  padding: 1rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.compat-coverflow__icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.compat-coverflow__card-title {
+  color: var(--cc-accent);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.compat-coverflow__card-text {
+  color: var(--cc-text-light);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--cc-accent);
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #fff;
+}
+
+.swiper-pagination-bullet {
+  background: var(--cc-text-light);
+  opacity: 0.6;
+}
+.swiper-pagination-bullet-active {
+  background: var(--cc-accent);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .compat-coverflow__slide {
+    width: 90%;
+  }
+  .compat-coverflow__title {
+    font-size: 1.75rem;
+  }
+}
