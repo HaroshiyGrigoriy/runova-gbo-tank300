@@ -1,0 +1,48 @@
+/* src/styles/reset.css  */
+/* 1) Все отступы и бордюры = 0  */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   /* фикс проблемы width + padding */
+}
+
+/* 2) Наследуем шрифт у form‑элементов */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 3) У кнопок убираем бордюры/фон по умолчанию */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* 4) Ссылки – нет подчёркивания, цвет наследуем */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 5) У списков убираем пули — ты сам решишь, нужны ли */
+ul, ol {
+  list-style: none;
+}
+
+/* 6) Изображения responsive по умолчанию */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7) html/body – удобная база */
+html:focus-within {
+  scroll-behavior: smooth;  /* плавный скролл якорей */
+}
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}

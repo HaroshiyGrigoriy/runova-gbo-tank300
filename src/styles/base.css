@@ -1,0 +1,31 @@
+:root{
+  --accent:#ca8149;
+  --bg-dark:#0f172a02;
+  --bg-card:#1e273f;
+  --text:#f9fafb;
+  --text-muted:#94a3b8;
+  --radius:0.75rem;
+  --container:1240px;
+  --gap:1.5rem;
+}
+
+/* ---------- система контейнеров ---------- */
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin-inline:auto;
+
+}
+
+/* ---------- типографика ---------- */
+html{scroll-behavior:smooth;}
+body{
+
+  background:#000;           /* фоновый градиент секции задаётся внутри блоков */
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* utility */
+.text-center{text-align:center;}
+.hidden{display:none!important;}

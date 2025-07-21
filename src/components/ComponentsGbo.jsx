@@ -2,9 +2,9 @@
 import React from 'react';
 import '../styles/components_gbo.css';
 
-import bmkImage   from '../assets/for_comp/bmk.jpg';
-import nsbImage   from '../assets/for_comp/nasos.jpg';
-import ngsImage   from '../assets/for_comp/nasos.jpg';
+import bmkImage   from '../assets/for_comp/bm.jpg';
+import nsbImage   from '../assets/for_comp/насос1.jpg';
+import ngsImage   from '../assets/for_comp/насос2.jpg';
 import ebuImage   from '../assets/for_comp/ebu.jpg';
 
 export default function Components() {

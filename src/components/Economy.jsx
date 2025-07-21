@@ -3,10 +3,10 @@ import '../styles/economy.css';
 
 export default function Economy({ onRequest }) {
   const [form, setForm] = useState({
-    distance: 30000,
+    distance: 35000,
     consumption: 13,
     priceBenz: 62,
-    priceGas: 32,
+    priceGas: 31,
     gasFactor: 1.12,
     systemCost: 120000
   });
@@ -179,6 +179,10 @@ Payback = SystemCost / (Saving_year / 12)`}</pre>
                 Стоимость системы (₽)
                 <input name="systemCost" type="number" value={form.systemCost} onChange={update}/>
               </label>
+              <label>
+                Твоя годовая экономия
+              </label>
+              
             </form>
           </div>
 
