@@ -213,14 +213,14 @@
 .reason:hover:before { opacity:1; }
 .reason h4 {
   margin:0 0 .4rem;
-  font-size:.9rem;
+  font-size:1.4rem;
   color:#ff9549;
   font-weight:600;
   letter-spacing:.5px;
 }
 .reason p {
   margin:0;
-  font-size:.7rem;
+  font-size:1rem;
   line-height:1.4;
   color:#b3c2d1;
 }
@@ -274,9 +274,9 @@
 }
 
 .calc-form {
-  display:grid;
+  display:inline;
   gap:.9rem;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 }
 .calc-form label {
   display:flex;
@@ -329,13 +329,15 @@
   border:1px solid #223346;
   border-radius:.6rem;
 }
-.result-list span { color:#89a0b9; }
+.result-list span { 
+  font-size:1.0rem;
+  color:#89a0b9; }
 .result-list strong {
   font-family:"JetBrains Mono",monospace;
   font-weight:600;
   color:#fff;
   letter-spacing:.5px;
-  font-size:.8rem;
+  font-size:1.0rem;
 }
 
 /* Ecology / resource */
@@ -365,14 +367,14 @@
 .eco-benefits__item:hover:before { opacity:1; }
 .eco-benefits__item h4 {
   margin:0 0 .3rem;
-  font-size:.8rem;
+  font-size:1.2rem;
   color:#ff9549;
   font-weight:600;
   letter-spacing:.4px;
 }
 .eco-benefits__item p {
   margin:0;
-  font-size:.63rem;
+  font-size:.83rem;
   line-height:1.35;
   color:#b5c4d3;
 }

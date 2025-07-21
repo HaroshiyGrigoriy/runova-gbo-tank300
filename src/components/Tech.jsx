@@ -59,7 +59,7 @@ export default function Tech({ onRequest }) {
     <section className="tech-slider">
       <div className='container'>
       <div className="tech-slider__header container">
-        <h2 className="tech-slider__title">ГБО 6 поколения RuNova</h2>
+        <h2 className="tech-slider__title">ГБО 6 поколенияRuNova</h2>
         <p className="tech-slider__lead">
           Инновационное решение для полного отказа от бензина без изменения конструкции двигателя
         </p>

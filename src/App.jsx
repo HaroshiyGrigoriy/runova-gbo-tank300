@@ -1,3 +1,5 @@
+import './styles/reset.css'
+import './styles/base.css'
 import './index.css';
 import Header from './components/Header';
 import Hero from './components/Hero';

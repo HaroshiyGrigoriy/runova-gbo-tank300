@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
-import '../index.css';
+import '../styles/hero.css';
 
 const Hero = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -13,12 +13,11 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-text">
-            Высококачественные альтернативные топливные системы и компоненты для
+            Высококачественные альтернативные топливные системы и компоненты для твоего
             <br />
-            <span className="highlight">ТВОЕГО</span>
           </h1>
           <h2 className="hero-title">TANK 300</h2>
-          <button className="btn-request" onClick={handleOpen}>
+          <button className="btn-request-hero" onClick={handleOpen}>
             Оставить заявку
           </button>
         </div>

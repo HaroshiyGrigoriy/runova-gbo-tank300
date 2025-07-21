@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "./Modal";
-import "../index.css";
+import "../styles/header.css";
 
 export default function Header() {
   /* ======= СТЕЙТЫ ======= */
