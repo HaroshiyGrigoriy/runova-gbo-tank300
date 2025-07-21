@@ -1,53 +1,51 @@
-*{
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* Добавлено для учета padding и border в ширине */
+  overflow-x: hidden;
 }
 
 .container {
-  max-width: 1240px; /* ограничиваем максимальную ширину */
-  margin: 0 auto;    /* центруем по горизонтали */
-  padding: 20px 20px;   /* небольшие отступы слева и справа */
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px; /* Уменьшено до одного значения для простоты */
 }
 
-/* 2. Стили для шапки сайта */
+/* Шапка сайта */
 .site-header {
   position: fixed;
-  width: 100%; /* шапка на всю ширину экрана */
-  height: 80px; /* высота шапки */
-  background-color: #1f2937; /* темно-серый фон (пример) */
-  color: #ffffff; /* белый цвет текста */
+  width: 100%;
+  height: 80px;
+  background-color: #1f2937;
+  color: #ffffff;
   z-index: 1000;
 }
 
-/* 3. Контейнер для логотипа и навигации */
 .header-content {
-  display: flex; /* делаем flex-контейнер */
-  justify-content: space-between; /* логотип слева, навигация справа */
-  align-items: center; /* выравнивание по вертикали по центру */
-  height: 100%; /* высота наследуется от родителя (80px) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
-/* 4. Стили логотипа */
 .logo a {
-  font-size: 54px; /* размер текста */
-  font-weight: bold; /* жирный шрифт */
-  color: inherit; /* цвет текста наследуется от родителя (#ffffff) */
-  text-decoration: none; /* убираем подчеркивание */
+  font-size: 54px;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
 }
 
-/* 5. Стили списка навигации */
 .navigation {
-  display: flex; /* элементы в навигации в ряд */
-  align-items: center; /* вертикальное выравнивание */
+  display: flex;
+  align-items: center;
 }
 
 .nav-list {
-  display: flex; /* ссылки выстраиваются в линию */
-  gap: 20px; /* промежуток между ссылками */
-  list-style: none; /* убираем точки у списка */
-  margin: 0; /* убираем внешние отступы */
-  padding: 0; /* убираем внутренние отступы */
+  display: flex;
+  gap: 20px;
+  list-style: none;
 }
+
 .nav-list li a {
   position: relative;
   color: #ffffff;
@@ -58,12 +56,10 @@
   transition: color 0.3s ease;
 }
 
-/* подсвечиваем при наведении */
 .nav-list li a:hover {
   color: #ff9549;
 }
 
-/* underline анимация снизу */
 .nav-list li a::after {
   content: "";
   position: absolute;
@@ -78,7 +74,7 @@
 .nav-list li a:hover::after {
   width: 100%;
 }
-/* 6. Стили отдельной кнопки справа */
+
 .btn-request {
   padding: 10px 20px;
   background-color: #ff9549;
@@ -95,7 +91,6 @@
   overflow: hidden;
 }
 
-/* Световой эффект */
 .btn-request::before {
   content: "";
   position: absolute;
@@ -109,33 +104,75 @@
   z-index: -1;
 }
 
-/* Hover: увеличиваем и светим */
 .btn-request:hover {
   background-color: #ff7a20;
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* Двигаем свет */
 .btn-request:hover::before {
   left: 150%;
 }
 
+/* Hero Section */
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  background-image: url('./assets/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-content {
+  padding: 0 20px;
+  max-width: 100%; /* Предотвращает выход за края */
+}
+
+.hero-text {
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.highlight {
+  font-weight: 700;
+}
+
+.hero-title {
+  font-size: 72px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.hero-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff9549;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+/* About Section */
 .about {
   padding: 100px 0;
   background-color: #0f172a;
   color: #f8fafc;
-  overflow: hidden;
 }
 
-/* Контейнер внутри */
-.container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Введение секции */
 .about__intro {
   text-align: center;
   margin-bottom: 60px;
@@ -169,7 +206,6 @@
   margin: 20px auto 0;
 }
 
-/* Основной контент (текст + изображение) */
 .about__main {
   display: flex;
   gap: 40px;
@@ -182,6 +218,8 @@
   flex: 1;
   font-size: 18px;
   line-height: 1.7;
+  max-width: 100%; /* Предотвращает выпирание текста */
+  overflow-wrap: break-word; /* Перенос длинных слов */
 }
 
 .about__description p {
@@ -200,12 +238,12 @@
 }
 
 .about__visual img {
-  width: 100%;
+  max-width: 100%; /* Изображение не выходит за контейнер */
+  height: auto;
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* Карточки преимуществ */
 .about__features {
   display: flex;
   flex-wrap: wrap;
@@ -262,105 +300,58 @@
   color: #cbd5e1;
 }
 
-/* Hero Section */
-.hero-section {
-  width: 100%;
-  height: 100vh;
-  background-image: url('./assets/hero.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  color: #fff;
+/* Медиа-запросы */
+@media (min-width: 1280px) {
+  .container { max-width: 1400px; }
+  .logo a { font-size: 64px; }
+  .hero-title { font-size: 90px; }
+  .hero-text { font-size: 42px; }
+  .about__title { font-size: 54px; }
+  .feature-card { flex: 1 1 260px; }
 }
 
-.hero-container {
-  width: 100%;
-  max-width: 1240px;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+@media (max-width: 991px) {
+  .site-header { height: 64px; }
+  .logo a { font-size: 42px; }
+  .nav-list { gap: 14px; }
+  .btn-request { padding: 8px 16px; }
+  .hero-section { height: 90vh; }
+  .hero-title { font-size: 54px; line-height: 1.1; }
+  .hero-text { font-size: 26px; }
+  .hero-content { max-width: 480px; }
+  .about__main { flex-direction: column-reverse; gap: 28px; }
+  .about__visual { max-width: 440px; margin: 0 auto; }
+  .about__features { justify-content: center; }
+  .feature-card { flex: 0 1 45%; }
 }
 
-.hero-content {
-  padding: 0 20px;
-}
-
-.hero-text {
-  font-size: 34px;
-  font-weight: 500;
-}
-
-.highlight {
-  font-weight: 700;
-}
-
-.hero-title {
-  font-size: 72px;
-  font-weight: 800;
-  margin-top: 10px;
-}
-
-.hero-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #ff9549;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 6px;
-}
-
-:root {
-  --primary-color: #ff7a20;
-  --bg-color: #f8f9fa;
-  --text-color: #1c1c1e;
-  --subtitle-color: #555;
-}
-
-
-@media (max-width: 768px) {
-  .hero-text {
-    font-size: 20px;
-    line-height: 1.4;
-    text-align: left;
+@media (max-width: 767px) {
+  .container { padding: 10px; } /* Уменьшаем отступы */
+  .burger { display: block; position: absolute; top: 18px; right: 20px; width: 30px; height: 22px; cursor: pointer; z-index: 1100; }
+  .burger span, .burger::before, .burger::after {
+    content: ''; position: absolute; width: 100%; height: 3px; background: #fff; transition: .35s; border-radius: 2px;
   }
+  .burger span { top: 50%; transform: translateY(-50%); }
+  .burger::before { top: 0; }
+  .burger::after { bottom: 0; }
+  .burger.active span { opacity: 0; }
+  .burger.active::before { transform: translateY(9px) rotate(45deg); }
+  .burger.active::after { transform: translateY(-9px) rotate(-45deg); }
+  .navigation { position: fixed; inset: 0 0 0 40%; background: #1f2937; flex-direction: column; align-items: flex-start; padding: 90px 24px 40px; transform: translateX(100%); transition: .4s ease; }
+  .navigation.open { transform: translateX(0); }
+  .nav-list { flex-direction: column; gap: 24px; margin: 0 0 40px; }
+  .btn-request { width: 100%; text-align: center; }
+  .hero-title { font-size: 36px; } /* Уменьшаем шрифт */
+  .hero-text { font-size: 20px; }
+  .about { padding: 60px 0; } /* Уменьшаем отступы секции */
+  .feature-card { flex: 1 1 100%; } /* Карточки на всю ширину */
+}
 
-  .hero-title {
-    font-size: 38px;
-    text-align: left;
-  }
-
-  .hero-btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-  }
-
-  .hero-container {
-    padding: 0 16px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hero-content {
-    width: 100%;
-    padding: 0;
-  }
-
-  .nav-list {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-end;
-    margin-right: 20px;
-  }
-
-  .btn-request {
-    width: 100%;
-    text-align: center;
-    margin: 10px 0;
-  }
+@media (max-width: 480px) {
+  .hero-section { height: 70vh; }
+  .hero-text { font-size: 16px; }
+  .hero-title { font-size: 32px; }
+  .feature-card__desc { font-size: 14px; }
+  .about__title { font-size: 32px; }
+  .about__lead { font-size: 16px; }
 }
