@@ -5,6 +5,9 @@ import About from './components/about';
 import Tech from './components/Tech';
 import Compatibility from './components/Compatibility';
 import Components from './components/ComponentsGbo';
+import Economy from './components/Economy';
+import Request from './components/Request';
+
 
 
 export default function App() {
@@ -16,6 +19,9 @@ export default function App() {
       <Tech/>
       <Compatibility/>
       <Components/>
+      <Economy>
+      </Economy>
+      <Request></Request>
      </div>
   );
 }

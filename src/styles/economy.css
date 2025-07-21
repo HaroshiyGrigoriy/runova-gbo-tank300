@@ -1,0 +1,412 @@
+.economy {
+  background: #0d1524;
+  background: radial-gradient(circle at 70% 20%, #182840 0%, #0d1524 60%);
+  color: #eef4fa;
+  padding: 5rem 0 4rem;
+  font-family: inherit;
+}
+
+.economy .container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+}
+
+/* HERO */
+.economy-hero {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit,minmax(480px,1fr));
+  align-items: start;
+  margin-bottom: 3.5rem;
+}
+
+.economy-hero__title {
+  margin: 0 0 1rem;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  background: linear-gradient(90deg,#ff7a20,#ffb150);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.economy-hero__lead {
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
+  color: #90a4be;
+  line-height: 1.55;
+  max-width: 34ch;
+}
+
+.economy-hero__stat {
+  background: linear-gradient(135deg,#1f2e45,#162235);
+  border: 1px solid #25354c;
+  border-left: 5px solid #ff7a20;
+  padding: 1.1rem 1.2rem 1rem;
+  border-radius: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 320px;
+  box-shadow: 0 10px 28px -8px rgba(255,122,32,0.25);
+}
+
+.economy-hero__stat > span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8190a4;
+}
+
+.economy-hero__stat > strong {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.economy-hero__stat > em {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: #b6c4d3;
+}
+
+.economy-hero__actions {
+  margin-top: 1.8rem;
+}
+
+.economy__btn {
+  background: linear-gradient(120deg,#ff7a20,#ff9549);
+  border: none;
+  color: #fff;
+  padding: 0.95rem 2.1rem;
+  font-size: 0.95rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  cursor: pointer;
+  box-shadow: 0 12px 30px -8px rgba(255,122,32,.45);
+  transition: transform .25s, box-shadow .25s;
+}
+.economy__btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 38px -10px rgba(255,122,32,.6);
+}
+.economy__btn:active {
+  transform: translateY(-1px);
+}
+.economy__btn--small {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  padding: 0.7rem 1.4rem;
+}
+
+/* KPI GRID */
+.economy-kpi-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2,minmax(140px,1fr));
+  margin-bottom: 2rem;
+}
+
+.kpi {
+  background: #182436;
+  border: 1px solid #243347;
+  padding: 0.9rem 0.8rem 0.7rem;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  position: relative;
+  overflow: hidden;
+}
+.kpi:before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(145deg,rgba(255,122,32,0.12),transparent 60%);
+  opacity:0;
+  transition:opacity .3s;
+}
+.kpi:hover:before { opacity:1; }
+
+.kpi__label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: #7f8ea1;
+}
+.kpi__value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  color: #ffffff;
+}
+.kpi--accent .kpi__value {
+  color: #ff9549;
+}
+
+/* Payback */
+.payback {
+  background:#182436;
+  border:1px solid #243347;
+  padding:1rem 1rem .9rem;
+  border-radius:.85rem;
+}
+.payback__top {
+  display:flex;
+  justify-content:space-between;
+  font-size:.8rem;
+  color:#9cb0c5;
+  margin-bottom:.6rem;
+}
+.payback__bar {
+  height:10px;
+  background:#111c2c;
+  border-radius:6px;
+  overflow:hidden;
+  position:relative;
+}
+.payback__fill {
+  height:100%;
+  background:linear-gradient(90deg,#ff7a20,#ffb150);
+  width:0;
+  transition:width .6s cubic-bezier(.65,.05,.36,1);
+}
+.payback__hint {
+  margin-top:.5rem;
+  font-size:.6rem;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  color:#627086;
+}
+
+/* Reasons */
+.economy-reasons {
+  display:grid;
+  gap:1.2rem;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  margin:1rem 0 3.2rem;
+}
+.reason {
+  background:#162133;
+  padding:1rem .95rem .85rem;
+  border:1px solid #223347;
+  border-radius:.9rem;
+  position:relative;
+  overflow:hidden;
+  transition:background .3s, transform .3s;
+}
+.reason:before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 80% 15%,rgba(255,122,32,.25),transparent 70%);
+  opacity:0;
+  transition:opacity .35s;
+}
+.reason:hover {
+  transform:translateY(-4px);
+  background:#19253a;
+}
+.reason:hover:before { opacity:1; }
+.reason h4 {
+  margin:0 0 .4rem;
+  font-size:.9rem;
+  color:#ff9549;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+.reason p {
+  margin:0;
+  font-size:.7rem;
+  line-height:1.4;
+  color:#b3c2d1;
+}
+
+/* Formula details */
+.formula-box {
+  background:#162133;
+  border:1px solid #25354a;
+  border-radius:.9rem;
+  padding:1rem 1.1rem .8rem;
+  margin:0 0 3rem;
+}
+.formula-box summary {
+  cursor:pointer;
+  font-weight:600;
+  color:#ff9549;
+  list-style:none;
+  outline:none;
+  margin:0 0 .6rem;
+}
+.formula-box summary::-webkit-details-marker { display:none; }
+.formula-box pre {
+  margin:0 0 .5rem;
+  font-family:"JetBrains Mono",monospace;
+  font-size:.75rem;
+  line-height:1.4;
+  color:#e2e8f0;
+  white-space:pre;
+}
+.formula-box__note {
+  margin:0;
+  font-size:.6rem;
+  letter-spacing:.5px;
+  color:#7e90a2;
+}
+
+/* Calc Block */
+.economy-calc-block {
+  display:grid;
+  gap:2.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+  margin-bottom:3.5rem;
+}
+
+.economy-calc-block h3 {
+  margin:0 0 1rem;
+  font-size:1.15rem;
+  color:#ff9549;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+
+.calc-form {
+  display:grid;
+  gap:.9rem;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+}
+.calc-form label {
+  display:flex;
+  flex-direction:column;
+  gap:.3rem;
+  font-size:.6rem;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#7d8fa3;
+}
+.calc-form input,
+.calc-form select {
+  background:#1c293c;
+  border:1px solid #27374c;
+  padding:.6rem .65rem;
+  border-radius:.6rem;
+  font-size:.75rem;
+  color:#eef5fb;
+  outline:none;
+  transition:border-color .25s, background .25s;
+}
+.calc-form input:focus,
+.calc-form select:focus {
+  border-color:#ff9549;
+  background:#243347;
+}
+
+.economy-calc-block__result {
+  background:#162233;
+  border:1px solid #25354a;
+  border-radius:.9rem;
+  padding:1.2rem 1.2rem 1.1rem;
+  display:flex;
+  flex-direction:column;
+}
+.result-list {
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:.5rem;
+}
+.result-list li {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.75rem;
+  background:#1b2a3e;
+  padding:.55rem .7rem;
+  border:1px solid #223346;
+  border-radius:.6rem;
+}
+.result-list span { color:#89a0b9; }
+.result-list strong {
+  font-family:"JetBrains Mono",monospace;
+  font-weight:600;
+  color:#fff;
+  letter-spacing:.5px;
+  font-size:.8rem;
+}
+
+/* Ecology / resource */
+.eco-benefits {
+  display:grid;
+  gap:1.1rem;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  margin:0 0 3.2rem;
+}
+.eco-benefits__item {
+  background:#162133;
+  border:1px solid #223347;
+  padding:.85rem .75rem .75rem;
+  border-radius:.75rem;
+  position:relative;
+  overflow:hidden;
+  transition:background .3s;
+}
+.eco-benefits__item:before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(140deg,rgba(255,122,32,.18),transparent 65%);
+  opacity:0;
+  transition:opacity .35s;
+}
+.eco-benefits__item:hover:before { opacity:1; }
+.eco-benefits__item h4 {
+  margin:0 0 .3rem;
+  font-size:.8rem;
+  color:#ff9549;
+  font-weight:600;
+  letter-spacing:.4px;
+}
+.eco-benefits__item p {
+  margin:0;
+  font-size:.63rem;
+  line-height:1.35;
+  color:#b5c4d3;
+}
+
+/* Final CTA */
+.economy-final-cta {
+  text-align:center;
+  background:#162133;
+  padding:2.3rem 1rem 2.4rem;
+  border:1px solid #243447;
+  border-radius:1rem;
+  position:relative;
+  overflow:hidden;
+}
+.economy-final-cta:before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 30% 30%,rgba(255,122,32,.25),transparent 70%);
+  opacity:.5;
+  pointer-events:none;
+}
+.economy-final-cta p {
+  margin:0 0 1.4rem;
+  font-size:1.05rem;
+  font-weight:500;
+  letter-spacing:.5px;
+  color:#f2f7fb;
+}
+
+/* Responsive tweaks */
+@media (max-width:680px) {
+  .economy-hero__title { font-size:2.1rem; }
+  .economy-hero { grid-template-columns:1fr; }
+  .economy-kpi-grid { grid-template-columns:repeat(2,1fr); }
+  .economy-calc-block { grid-template-columns:1fr; }
+}

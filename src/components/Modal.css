@@ -1,163 +1,331 @@
+/* === БАЗА ОВЕРЛЕЯ === */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: radial-gradient(circle at 30% 30%, rgba(15,30,50,.85), rgba(5,10,18,.92));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 4000;
+  padding: clamp(1rem, 2vw, 2rem);
+  animation: overlayFade .45s ease;
 }
 
-.modal-container {
+@keyframes overlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* === КОНТЕЙНЕР === */
+.modal-shell {
   position: relative;
-  width: 90%;
-  max-width: 800px;
-  background-image: url("/src/assets/tank.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 980px;
+  background: linear-gradient(135deg,#152233,#0f1826);
+  border: 1px solid #243647;
+  border-radius: 24px;
   overflow: hidden;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,0.04);
+  animation: shellIn .5s cubic-bezier(.4,.8,.3,1);
   display: flex;
-  justify-content: flex-end;
-  padding: 0;
+  flex-direction: column;
+  min-height: 520px;
+}
+
+@keyframes shellIn {
+  0% { transform: scale(.85) translateY(20px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modal-shell--sent {
   min-height: 400px;
 }
 
-.modal-close {
+/* === КНОПКА ЗАКРЫТИЯ === */
+.modal-close-btn {
   position: absolute;
   top: 14px;
   right: 16px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 18px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  transition: background .3s, transform .3s, border-color .3s;
   z-index: 10;
 }
-
-.form-wrapper {
-  width: 100%;
-  max-width: 350px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.modal-close-btn:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-3px);
+}
+.modal-close-btn:active {
+  transform: translateY(-1px);
 }
 
-.form-wrapper h2 {
-  margin-bottom: 20px;
-  text-align: center;
+/* === GRID === */
+.modal-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 46% 54%;
+  min-height: 100%;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+@media (max-width: 860px) {
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-input {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.btn-request {
-  padding: 10px 20px;
-  background-color: #ff9549;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+/* === ЛЕВАЯ ВИЗУАЛЬНАЯ ПАНЕЛЬ === */
+.modal-visual {
   position: relative;
-  z-index: 1;
+  background:
+    linear-gradient(160deg, rgba(255,122,32,0.25), rgba(0,0,0,0.4)),
+    url("/src/assets/tank.jpg") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.2rem 1.8rem;
   overflow: hidden;
 }
 
-/* Световой эффект */
-.btn-request::before {
-  content: "";
+.modal-visual::before,
+.modal-visual::after {
+  content: '';
   position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: skewX(-20deg);
-  transition: left 0.6s ease;
-  z-index: -1;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+.modal-visual::before {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle,#ff7a20,#ff9549);
+  top: -120px; left: -80px;
+  animation: orb1 14s linear infinite;
+}
+.modal-visual::after {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle,#ff9549,#ffcc7a);
+  bottom: -120px; right: -100px;
+  animation: orb2 16s linear infinite;
+}
+@keyframes orb1 {
+  0% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(30px,20px) rotate(140deg); }
+  100% { transform: translate(0,0) rotate(360deg); }
+}
+@keyframes orb2 {
+  0% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(-20px,-30px) rotate(200deg); }
+  100% { transform: translate(0,0) rotate(360deg); }
 }
 
-/* Hover: увеличиваем и светим */
-.btn-request:hover {
-  background-color: #ff7a20;
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
-/* Двигаем свет */
-.btn-request:hover::before {
-  left: 150%;
-}
-
-.success-message {
+.modal-visual__layer {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  color: #00ff88;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  text-align: center;
-  padding: 30px;
-  backdrop-filter: blur(6px);
-  border-radius: 16px;
+  background: linear-gradient(to top, rgba(10,15,25,.85), rgba(15,22,35,.4));
+  z-index: 1;
 }
-@media (max-width: 768px) {
-  .modal-content {
-    flex-direction: column;
-    width: 90%;
-    height: auto;
-    padding: 20px;
-  }
 
-  .modal-image {
-    display: none; /* убираем картинку */
-  }
+.modal-visual__caption {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+.modal-visual__caption h3 {
+  margin: 0 0 .4rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+.modal-visual__caption p {
+  margin: 0;
+  font-size: .85rem;
+  color: #d9e2ec;
+  letter-spacing: .4px;
+}
 
-  .form-container {
-    width: 100%;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* прозрачная, но читаемая */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-  }
+/* === ПРАВАЯ ЧАСТЬ (ФОРМА) === */
+.modal-form-wrap {
+  padding: 2.6rem 2.2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+}
 
-  form input {
-    font-size: 16px;
+@media (max-width: 860px) {
+  .modal-form-wrap {
+    padding: 2.2rem 1.4rem 2.4rem;
   }
+}
 
-  form button {
-    font-size: 18px;
-  }
+.modal-title {
+  margin: 0 0 .8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg,#ff7a20,#ffb150);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
-  .modal-close {
-    top: 10px;
-    right: 10px;
-    color: #000;
-    background: none;
-  }
+.modal-sub {
+  margin: 0 0 1.5rem;
+  font-size: .9rem;
+  color: #90a2b7;
+  line-height: 1.5;
+  max-width: 30ch;
+}
 
-  .success-message {
-    width: 100%;
-    font-size: 18px;
-    text-align: center;
+/* === ФОРМА === */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  position: relative;
+}
+
+.field label {
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #7d93a9;
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  background: linear-gradient(145deg,#1c2a3b,#172230 60%);
+  border: 1px solid #253546;
+  border-radius: 12px;
+  padding: .85rem .95rem;
+  font-size: .85rem;
+  color: #eef5fa;
+  outline: none;
+  font-family: inherit;
+  transition: border-color .3s, box-shadow .3s, background .3s;
+  resize: none;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #ff9549;
+  box-shadow: 0 0 0 3px rgba(255,149,73,0.15);
+}
+
+.field--error input,
+.field--error textarea {
+  border-color: #ff3d3d;
+  box-shadow: 0 0 0 2px rgba(255,61,61,.2);
+}
+
+.field__error {
+  font-size: .6rem;
+  color: #ff6262;
+  letter-spacing: .4px;
+  line-height: 1.2;
+  margin-top: -2px;
+}
+
+.modal-submit {
+  margin-top: .5rem;
+  background: linear-gradient(120deg,#ff7a20,#ff9549);
+  border: none;
+  border-radius: 14px;
+  padding: .95rem 1.4rem;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  letter-spacing: .5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: .6rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .35s, box-shadow .35s;
+  box-shadow: 0 12px 34px -10px rgba(255,122,32,.55);
+}
+.modal-submit:hover:not(:disabled) {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -12px rgba(255,122,32,.7);
+}
+.modal-submit:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,.25);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg);} }
+
+.privacy-note {
+  margin-top: .8rem;
+  font-size: .55rem;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: #66778a;
+}
+
+/* === УСПЕХ === */
+.modal-success {
+  flex: 1;
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+}
+.modal-success__icon {
+  font-size: 3.2rem;
+  filter: drop-shadow(0 6px 16px rgba(0,255,136,0.3));
+}
+.modal-success h2 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 700;
+  background: linear-gradient(90deg,#ffb150,#ff7a20);
+  -webkit-background-clip:text;
+  color: transparent;
+}
+.modal-success p {
+  margin: 0 0 1rem;
+  font-size: .95rem;
+  max-width: 40ch;
+  color: #b6c7d8;
+  line-height: 1.5;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+  .modal-shell {
+    border-radius: 18px;
+    min-height: unset;
   }
+  .modal-title { font-size: 1.7rem; }
+  .modal-visual { display: none; }
+  .modal-form-wrap { padding: 2rem 1.2rem 2.4rem; }
 }
