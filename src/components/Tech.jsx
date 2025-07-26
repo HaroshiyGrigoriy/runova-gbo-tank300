@@ -56,10 +56,10 @@ export default function Tech({ onRequest }) {
   const next = () => setIndex(i => (i === last ? 0 : i + 1));
 
   return (
-    <section className="tech-slider">
+    <section id="gbo" className="tech-slider">
       <div className='container'>
       <div className="tech-slider__header container">
-        <h2 className="tech-slider__title">ГБО 6 поколенияRuNova</h2>
+        <h2 className="tech-slider__title">ГБО 6 поколения <br/>RuNova</h2>
         <p className="tech-slider__lead">
           Инновационное решение для полного отказа от бензина без изменения конструкции двигателя
         </p>
@@ -94,7 +94,7 @@ export default function Tech({ onRequest }) {
       </div>
 
       <div className="tech-slider__cta">
-       <button className="btn-request" onClick={handleOpen}>
+       <button className="tech-slider__btn" onClick={handleOpen}>
             Оставить заявку
           </button>
       </div>

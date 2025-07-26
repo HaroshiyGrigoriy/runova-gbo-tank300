@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./Modal.css";
+import { sendApp } from "../services/appService";
 
 export default function Modal({ onClose, source = "default" }) {
   const [form, setForm] = useState({
@@ -68,15 +69,7 @@ export default function Modal({ onClose, source = "default" }) {
 
     setSending(true);
     try {
-      // ИМИТАЦИЯ запроса: замени на реальную отправку
-      // Пример:
-      // await fetch("/api/lead", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({ ...form, source })
-      // });
-
-      await new Promise(r => setTimeout(r, 1200));
+      await sendApp({...form,source});
       setSent(true);
     } catch (e) {
       alert("Ошибка отправки. Попробуйте ещё раз.");
