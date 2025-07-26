@@ -51,7 +51,7 @@ export default function Economy({ onRequest }) {
   const f2 = n => n.toLocaleString('ru-RU', { maximumFractionDigits: 2 });
 
   return (
-    <section id="economy" className="economy">
+    <section id="advantages" className="economy">
       <div className="container economy__wrap">
 
         {/* HERO блока экономии */}
